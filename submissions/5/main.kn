@@ -1,0 +1,23 @@
+func main()
+	var ansDic: dict<int, int> :: #dict<int, int>
+	for i(2, 20)
+		var factors: []int :: math@primeFactors(i)
+		var dic: dict<int, int> :: #dict<int, int>
+		for j(0, ^factors - 1)
+			do dic.add(factors[j], dic.get(factors[j], &) + 1)
+		end for
+		var keys: []int :: dic.toArrayKey()
+		var vals: []int :: dic.toArrayValue()
+		for j(0, ^keys - 1)
+			do ansDic.add(keys[j], [ansDic.get(keys[j], &), vals[j]].max())
+		end for
+	end for
+	
+	var ans: int :: 1
+	var keys: []int :: ansDic.toArrayKey()
+	var vals: []int :: ansDic.toArrayValue()
+	for i(0, ^keys - 1)
+		do ans :* keys[i] ^ vals[i]
+	end for
+	do cui@print("\{ans}\n")
+end func
