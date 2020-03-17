@@ -1,16 +1,15 @@
 func main()
 	var ans: int :: 0
-	var a: int :: 1
-	var b: int :: 2
+	var i: int :: 1
 	while loop(true)
-		if(a > 4000000)
+		var val: int :: math@fibonacci(i)
+		do i :+ 1
+		if(val > 4000000)
 			break loop
 		end if
-		if(a % 2 = 0)
-			do ans :+ a
+		if(val % 2 = 0)
+			do ans :+ val
 		end if
-		do a :$ b
-		do b :+ a
 	end while
 	do cui@print("\{ans}\n")
 end func

@@ -1,0 +1,5 @@
+func main()
+	var factors: []int :: math@primeFactors(600851475143)
+	var ans: int :: factors[^factors - 1]
+	do cui@print("\{ans}\n")
+end func
