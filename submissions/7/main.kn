@@ -1,0 +1,14 @@
+func main()
+	var cnt: int :: 1
+	var n: int :: 3
+	while loop(true)
+		if(math@prime(n))
+			do cnt :+ 1
+			if(cnt = 10001)
+				do cui@print("\{n}\n")
+				break loop
+			end if
+		end if
+		do n :+ 2
+	end while
+end func
