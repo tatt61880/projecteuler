@@ -1,0 +1,13 @@
+func main()
+	for a(1, 1000)
+		for b(a + 1, 1000)
+			var c: int :: 1000 - a - b
+			if(c < b)
+				skip b
+			end if
+			if(a ^ 2 + b ^ 2 = c ^ 2)
+				do cui@print("\{a * b * c}\n")
+			end if
+		end for
+	end for
+end func
