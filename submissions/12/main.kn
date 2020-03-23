@@ -1,0 +1,28 @@
+func main()
+	var n: int :: 1
+	var num: int :: 1
+	while loop(true)
+		do n :+ 1
+		do num :+ n
+		if(f(num) >= 500)
+			do cui@print("\{num}\n")
+			ret
+		end if
+	end while
+	func f(n: int): int
+		var res: int :: 1
+		var factors: []int :: math@primeFactors(n)
+		var cnt: int :: 1
+		var prev: int :: 0
+		for i(0, ^factors - 1)
+			if(factors[i] <> prev)
+				do prev :: factors[i]
+				do res :* cnt
+				do cnt :: 1
+			end if
+			do cnt :+ 1
+		end for
+		do res :* cnt
+		ret res
+	end func
+end func
