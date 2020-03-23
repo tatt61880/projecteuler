@@ -4,7 +4,7 @@ func main()
 	while loop(true)
 		do n :+ 1
 		do num :+ n
-		if(f(num) >= 500)
+		if(f(num) > 500)
 			do cui@print("\{num}\n")
 			ret
 		end if
