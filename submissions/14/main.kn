@@ -1,18 +1,22 @@
 var mp: dict<int, int>
+var cnt: int :: 0
 func main()
 	do @mp :: #dict<int, int>
 	do @mp.add(1, 1)
 	func dfs(val: int): int
-		var v: int :: (val % 2 = 0) ?(val / 2, val * 3 + 1)
-		var n: int :: @mp.get(v, &)
-		if(n <> 0)
-			do @mp.add(val, n + 1)
-			ret n + 1
-		else
-			do n :: dfs(v)
-			do @mp.add(val, n + 1)
-			ret n + 1
+		var res: int :: @mp.get(val, &)
+		if(res <> 0)
+			ret res
 		end if
+		
+		var v: int :: (val % 2 = 0) ?(val / 2, val * 3 + 1)
+		do res :: @mp.get(v, &)
+		if(res = 0)
+			do res :: dfs(v)
+		end if
+		do res :+ 1
+		do @mp.add(val, res)
+		ret res
 	end func
 	
 	var max: int :: 0
