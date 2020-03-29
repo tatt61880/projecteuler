@@ -1,0 +1,52 @@
+func main()
+	var s: [][]char :: [
+	|"",
+	|"one",
+	|"two",
+	|"three",
+	|"four",
+	|"five",
+	|"six",
+	|"seven",
+	|"eight",
+	|"nine",
+	|"ten",
+	|"eleven",
+	|"twelve",
+	|"thirteen",
+	|"fourteen",
+	|"fifteen",
+	|"sixteen",
+	|"seventeen",
+	|"eighteen",
+	|"nineteen"]
+	var s2: [][]char :: [
+	|"",
+	|"",
+	|"twenty",
+	|"thirty",
+	|"forty",
+	|"fifty",
+	|"sixty",
+	|"seventy",
+	|"eighty",
+	|"ninety"]
+	
+	var ans: int :: 0
+	for i(1, 999)
+		; 百の位
+		if(i / 100 <> 0)
+			do ans :+ ^s[i / 100] + ^"hundred"
+			do ans :+ i % 100 <> 0 ?(^"and", 0)
+		end if
+		; 十の位, 一の位
+		if(i % 100 < 20)
+			do ans :+ ^s[i % 100]
+		else
+			do ans :+ ^s2[(i / 10) % 10]
+			do ans :+ ^s[i % 10]
+		end if
+	end for
+	do ans :+ ^"onethousand"
+	do cui@print("\{ans}\n")
+end func
