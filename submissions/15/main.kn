@@ -1,0 +1,18 @@
+func main()
+	; パスカルの三角形を利用した組み合わせの前計算
+	func calcCombTable(N: int): [][]int
+		var res: [][]int :: #[N + 1, N + 1]int
+		for n(0, N)
+			do res[n][0] :: 1
+			do res[n][n] :: 1
+			for r(1, n - 1)
+				do res[n][r] :: res[n - 1][r - 1] + res[n - 1][r]
+			end for
+		end for
+		ret res
+	end func
+	
+	var n: int :: cui@input().toInt(&)
+	var ans: int :: calcCombTable(2 * n)[2 * n][n]
+	do cui@print("\{ans}\n")
+end func
