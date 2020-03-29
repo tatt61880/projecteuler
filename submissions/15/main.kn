@@ -1,4 +1,8 @@
 func main()
+	var n: int :: 20
+	var ans: int :: calcCombTable(2 * n)[2 * n][n]
+	do cui@print("\{ans}\n")
+	
 	; パスカルの三角形を利用した組み合わせの前計算
 	func calcCombTable(N: int): [][]int
 		var res: [][]int :: #[N + 1, N + 1]int
@@ -11,8 +15,4 @@ func main()
 		end for
 		ret res
 	end func
-	
-	var n: int :: cui@input().toInt(&)
-	var ans: int :: calcCombTable(2 * n)[2 * n][n]
-	do cui@print("\{ans}\n")
 end func
