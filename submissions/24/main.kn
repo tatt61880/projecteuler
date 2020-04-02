@@ -1,0 +1,25 @@
+func main()
+	var nums: []int :: #[10]int
+	for i(0, 9)
+		do nums[i] :: i
+	end for
+	var rest: int :: 1000000
+	do rest :- 1
+	for digit(9, 0, -1)
+		var fact: int :: math@factInt(digit)
+		var idx: int :: rest / fact
+		do rest :- fact * idx
+		var cnt: int :: 0
+		for i(0, 9)
+			if(nums[i] <> -1)
+				if(cnt = idx)
+					do cui@print("\{nums[i]}")
+					do nums[i] :: -1
+					break i
+				end if
+				do cnt :+ 1
+			end if
+		end for
+	end for
+	do cui@print("\n")
+end func
