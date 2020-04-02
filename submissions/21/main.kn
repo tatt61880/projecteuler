@@ -2,13 +2,13 @@ func main()
 	func d(n: int): int
 		var res: int :: 1
 		for i(2, n)
+			if(i * i > n)
+				ret res
+			end if
 			if(n % i = 0)
 				var j: int :: n / i
 				do res :+ i
 				do res :+ j <> i ?(j, 0)
-			end if
-			if(i * i >= n)
-				ret res
 			end if
 		end for
 	end func
