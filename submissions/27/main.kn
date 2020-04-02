@@ -1,0 +1,17 @@
+func main()
+	var ans: int :: 0
+	var max: int :: 0
+	for a(-1000, 1000)
+		for b(-1000, 1000)
+			var n: int :: 0
+			while(math@prime(n ^ 2 + a * n + b))
+				do n :+ 1
+			end while
+			if(n > max)
+				do max :: n
+				do ans :: a * b
+			end if
+		end for
+	end for
+	do cui@print("\{ans}\n")
+end func
