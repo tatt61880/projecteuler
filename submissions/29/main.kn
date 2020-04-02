@@ -1,0 +1,13 @@
+func main()
+	var mp: dict<num@BigInt, bool> :: #dict<num@BigInt, bool>
+	for a(2, 100)
+		for b(2, 100)
+			var x: num@BigInt :: num@makeBigInt()
+			do x.fromInt(a)
+			do x.powInt(b)
+			do mp.add(x, true)
+		end for
+	end for
+	var ans: int :: ^mp
+	do cui@print("\{ans}\n")
+end func
