@@ -1,0 +1,17 @@
+func main()
+	var days: []int :: [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	var day: int :: 1 + 365
+	var ans: int :: 0
+	for y(1901, 2000)
+		for m(1, 12)
+			if(day % 7 = 0)
+				do ans :+ 1
+			end if
+			do day :+ days[m]
+			if(m = 2 & y % 4 = 0)
+				do day :+ 1
+			end if
+		end for
+	end for
+	do cui@print("\{ans}\n")
+end func
