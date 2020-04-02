@@ -1,0 +1,30 @@
+func main()
+	var ans: int :: 0
+	for i(1, 999)
+		var s: []char :: i.toStr()
+		var t: []char :: ##s
+		do t.reverse()
+		var num: int
+		do num :: (s ~ t).toInt(&)
+		if(f(num))
+			do ans :+ num
+		end if
+		do num :: (s.sub(0, ^s - 1) ~ t).toInt(&)
+		if(f(num))
+			do ans :+ num
+		end if
+	end for
+	
+	func f(n: int): bool
+		var s: []char :: ""
+		while(n <> 0)
+			do s :~ ['0'.offset(n % 2)]
+			do n :/ 2
+		end while
+		var t: []char :: ##s
+		do t.reverse()
+		ret s = t
+	end func
+	
+	do cui@print("\{ans}\n")
+end func
