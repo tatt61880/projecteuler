@@ -1,0 +1,16 @@
+func main()
+	var a: num@BigInt :: num@makeBigInt()
+	var b: num@BigInt :: num@makeBigInt()
+	do a.fromInt(1)
+	do b.fromInt(1)
+	var idx: int :: 1
+	while(true)
+		if(^a.toStr() = 1000)
+			do cui@print("\{idx}\n")
+			ret
+		end if
+		do a :$ b
+		do b.add(a)
+		do idx :+ 1
+	end while
+end func
