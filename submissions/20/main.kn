@@ -1,0 +1,13 @@
+func main()
+	var num: num@BigInt :: num@makeBigInt()
+	do num.fromInt(1)
+	for i(1, 100)
+		do num.mulInt(i)
+	end for
+	var ans: int :: 0
+	var s: []char :: num.toStr()
+	for i(0, ^s - 1)
+		do ans :+ s[i] $ int - '0' $ int
+	end for
+	do cui@print("\{ans}\n")
+end func
