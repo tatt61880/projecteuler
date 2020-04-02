@@ -1,0 +1,15 @@
+func main()
+	var ans: int :: 0
+	for i(3, 10000000)
+		var n: int :: i
+		var sum: int :: 0
+		while(n <> 0)
+			do sum :+ math@factInt(n % 10)
+			do n :/ 10
+		end while
+		if(sum = i)
+			do ans :+ sum
+		end if
+	end for
+	do cui@print("\{ans}\n")
+end func
