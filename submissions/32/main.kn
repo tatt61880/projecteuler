@@ -1,0 +1,17 @@
+func main()
+	var ans: int :: 0
+	for b(1234, 98765)
+		for a(1, 99)
+			if(b % a = 0)
+				var c: int :: b / a
+				var s: []char :: "\{a}\{c}\{b}"
+				do s.sort()
+				if(s = "123456789")
+					do ans :+ b
+					skip b
+				end if
+			end if
+		end for
+	end for
+	do cui@print("\{ans}\n")
+end func
