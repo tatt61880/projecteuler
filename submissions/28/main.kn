@@ -1,0 +1,9 @@
+func main()
+	var ans: int :: 1
+	for i(3, 1001, 2)
+		for n(0, 3)
+			do ans :+ i ^ 2 - (i - 1) * n
+		end for
+	end for
+	do cui@print("\{ans}\n")
+end func
