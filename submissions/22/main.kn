@@ -1,0 +1,17 @@
+func main()
+	var file: file@Reader :: file@makeReader("names.txt")
+	var s: []char :: file.readLine()
+	do s :: s.replace("\"", "")
+	var names: [][]char :: s.split(",")
+	var ans: int :: 0
+	do names.sort()
+	for rank(1, ^names)
+		var name: []char :: names[rank - 1]
+		var worth: int :: 0
+		for i(0, ^name - 1)
+			do worth :+ name[i] $ int - 'A' $ int + 1
+		end for
+		do ans :+ rank * worth
+	end for
+	do cui@print("\{ans}\n")
+end func
