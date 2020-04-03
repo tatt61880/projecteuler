@@ -1,22 +1,47 @@
 func main()
+	var nums: dict<int, bool> :: #dict<int, bool>
+	var next: dict<int, bool> :: ##nums
+	do next.add(2, true)
+	do next.add(3, true)
+	do next.add(5, true)
+	do next.add(7, true)
+	while loop(true)
+		var add: dict<int, bool> :: #dict<int, bool>
+		var nextKeys: []int :: next.toArrayKey()
+		for i(0, ^next - 1)
+			var n: int :: nextKeys[i]
+			for j(1, 9, 2)
+				if(math@prime(n * 10 + j))
+					do add.add(n * 10 + j, true)
+				end if
+			end for
+		end for
+		if(^add = 0)
+			break loop
+		end if
+		var keys: []int :: add.toArrayKey()
+		for i(0, ^keys - 1)
+			do nums.add(keys[i], add.get(keys[i], &))
+		end for
+		do next :: ##add
+	end while
+	var keys: []int :: nums.toArrayKey()
 	var ans: int :: 0
-	for n(1, 9999)
-		var s: []char :: ""
-		var i: int :: 1
-		while(^s < 9)
-			do s :~ "\{n * i}"
-			do i :+ 1
-		end while
-		if(^s <> 9)
-			skip n
-		end if
-		var val: int :: s.toInt(&)
-		if(val > ans)
-			do s.sort()
-			if(s = "123456789")
-				do ans :: val
+	for i(0, ^keys - 1)
+		var val: int :: keys[i]
+		var n: int :: val
+		while(n <> 0)
+			var s: []char :: n.toStr()
+			if(^s = 1)
+				do n :: 0
+			else
+				do n :: s.sub(1, ^s - 1).toInt(&)
+				if(!math@prime(n))
+					skip i
+				end if
 			end if
-		end if
+		end while
+		do ans :+ val
 	end for
 	do cui@print("\{ans}\n")
 end func

@@ -1,0 +1,22 @@
+func main()
+	var ans: int :: 0
+	for n(1, 9999)
+		var s: []char :: ""
+		var i: int :: 1
+		while(^s < 9)
+			do s :~ "\{n * i}"
+			do i :+ 1
+		end while
+		if(^s <> 9)
+			skip n
+		end if
+		var val: int :: s.toInt(&)
+		if(val > ans)
+			do s.sort()
+			if(s = "123456789")
+				do ans :: val
+			end if
+		end if
+	end for
+	do cui@print("\{ans}\n")
+end func
