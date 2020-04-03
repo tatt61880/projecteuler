@@ -1,0 +1,20 @@
+func main()
+	var maxNum: int :: 0
+	var ans: int :: 0
+	for p(1, 1000)
+		var num: int :: 0
+		for a(1, p / 2)
+			for b(a, p)
+				var c: int :: p - a - b
+				if(a ^ 2 + b ^ 2 = c ^ 2)
+					do num :+ 1
+				end if
+			end for
+		end for
+		if(num > maxNum)
+			do maxNum :: num
+			do ans :: p
+		end if
+	end for
+	do cui@print("\{ans}\n")
+end func
