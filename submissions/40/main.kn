@@ -1,0 +1,21 @@
+func main()
+	func d(n: int): int
+		do n :- 1
+		var digit: int :: 1
+		var num: int :: 0
+		while(true)
+			if(n <= digit * (10 ^ (digit - 1)) * 9)
+				var x: int :: n / digit
+				do n :- digit * x
+				ret(10 ^ (digit - 1) + x).toStr()[n] $ int - '0' $ int
+			end if
+			do n :- digit * 10 ^ (digit - 1) * 9
+			do digit :+ 1
+		end while
+	end func
+	var ans: int :: 1
+	for n(1, 7)
+		do ans :* d(10 ^ (n - 1))
+	end for
+	do cui@print("\{ans}\n")
+end func
