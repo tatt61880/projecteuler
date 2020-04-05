@@ -1,0 +1,20 @@
+func main()
+	var n: int :: 9
+	while(true)
+		if(!math@prime(n))
+			var i: int :: 1
+			while loop(true)
+				var num: int :: n - 2 * i ^ 2
+				do i :+ 1
+				if(num < 0)
+					do cui@print("\{n}\n")
+					ret
+				end if
+				if(math@prime(num))
+					break loop
+				end if
+			end while
+		end if
+		do n :+ 2
+	end while
+end func
