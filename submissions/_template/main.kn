@@ -1,0 +1,5 @@
+func main()
+	const n: int :: 10
+	var ans: int :: 0
+	do cui@print("\{ans}\n")
+end func
