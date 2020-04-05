@@ -1,14 +1,15 @@
 @echo off
+setlocal
 
 :RETRY
-set INPUT=
-set /p INPUT="”Ô†‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: "
-if "%INPUT%"=="" (
+set ID=
+set /p ID="–â‘è”Ô†‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: "
+if "%ID%" == "" (
   goto :RETRY
 )
-if not exist %INPUT% (
-  xcopy /S /I .\_template .\%INPUT% > nul
+if not exist %ID% (
+  xcopy /S /I .\_template .\%ID% > nul
 )
 
-start .\%INPUT%\main.kn
-start https://projecteuler.net/problem=%INPUT%
+start .\%ID%\main.kn
+start https://projecteuler.net/problem=%ID%
