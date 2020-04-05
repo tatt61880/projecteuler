@@ -1,0 +1,24 @@
+func main()
+	var file: file@Reader :: file@makeReader("words.txt")
+	var s: []char :: file.readLine()
+	do s :: s.replace("\"", "")
+	var words: [][]char :: s.split(",")
+	
+	var triangles: dict<int, bool> :: #dict<int, bool>
+	for n(1, 10000)
+		do triangles.add(n * (n + 1) / 2, true)
+	end for
+	
+	var ans: int :: 0
+	for i(0, ^words - 1)
+		var word: []char :: words[i]
+		var val: int :: 0
+		for j(0, ^word - 1)
+			do val :+ word[j] $ int - 'A' $ int + 1
+		end for
+		if(triangles.get(val, &))
+			do ans :+ 1
+		end if
+	end for
+	do cui@print("\{ans}\n")
+end func
