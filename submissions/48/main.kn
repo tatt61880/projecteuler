@@ -1,0 +1,12 @@
+func main()
+	var sum: num@BigInt :: num@makeBigInt()
+	do sum.fromInt(0)
+	for i(1, 1000)
+		var n: num@BigInt :: num@makeBigInt()
+		do n.fromInt(i)
+		do n.powInt(i)
+		do sum.add(n)
+	end for
+	var ans: num@BigInt :: sum.modInt(10 ^ 10)
+	do cui@print("\{ans}\n")
+end func
