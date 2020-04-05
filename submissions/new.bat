@@ -12,4 +12,4 @@ if exist %INPUT% (
 )
 
 xcopy /S /I .\_template .\%INPUT% > nul
-.\%INPUT%\main.kn
+start .\%INPUT%\main.kn
