@@ -31,7 +31,6 @@ func next_permutation(arr: []int): bool
 end func
 
 func main()
-	; 8-digit and 9-digit pandigital is allways not-prime.
 	const n: int :: 10
 	var ans: int :: 0
 	var arr: []int :: #[n]int
