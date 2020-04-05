@@ -1,0 +1,25 @@
+func main()
+	var n: int :: 1
+	while(true)
+		var factors: []int :: math@primeFactors(n)
+		if(^factors >= 4)
+			if(f(n) & f(n + 1) & f(n + 2) & f(n + 3))
+				do cui@print("\{n}\n")
+				ret
+			end if
+		end if
+		do n :+ 1
+	end while
+	func f(n: int): bool
+		var factors: []int :: math@primeFactors(n)
+		var prev: int :: 0
+		var cnt: int :: 0
+		for i(0, ^factors - 1)
+			if(factors[i] <> prev)
+				do prev :: factors[i]
+				do cnt :+ 1
+			end if
+		end for
+		ret cnt = 4
+	end func
+end func
