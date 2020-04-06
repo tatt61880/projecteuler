@@ -1,0 +1,29 @@
+func main()
+	for i(1000, 9999)
+		if(!math@prime(i))
+			skip i
+		end if
+		for j(i + 1, 9999)
+			if(i = 1487 & j = 4817 | !math@prime(j))
+				skip j
+			end if
+			var k: int :: j + j - i
+			if(k > 9999 | !math@prime(k))
+				skip j
+			end if
+			var si: []char :: i.toStr()
+			var sj: []char :: j.toStr()
+			do si.sort()
+			do sj.sort()
+			if(si <> sj)
+				skip j
+			end if
+			var sk: []char :: k.toStr()
+			do sk.sort()
+			if(si <> sk)
+				skip j
+			end if
+			do cui@print("\{i}\{j}\{k}\n")
+		end for
+	end for
+end func
