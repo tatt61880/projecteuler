@@ -1,0 +1,32 @@
+func main()
+	const n: int :: 10000
+	var ans: int :: -1
+	; ※最小であることの証明ができていない解法です。
+	for i(1, n)
+		for j(i + 1, n)
+			var pj: int :: p(j)
+			var pi: int :: p(i)
+			var d: int :: pj - pi
+			if(ans <> -1 & d > ans)
+				skip j
+			end if
+			if(!isP(d))
+				skip j
+			end if
+			var a: int :: pj + pi
+			if(!isP(a))
+				skip j
+			end if
+			do ans :: d
+		end for
+	end for
+	do cui@print("\{ans}\n")
+	
+	func p(num: int): int
+		ret num * (3 * num - 1) / 2
+	end func
+	func isP(num: int): bool
+		var nn: int :: ((num * 2 / 3) $ float ^ 0.5) $ int + 1
+		ret nn * (3 * nn - 1) / 2 = num
+	end func
+end func
