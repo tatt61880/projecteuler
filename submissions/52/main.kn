@@ -1,0 +1,20 @@
+func main()
+	var n: int :: 0
+	while loop(true)
+		do n :+ 1
+		var s: []char :: n.toStr()
+		do s.sort()
+		for i(2, 6)
+			var s2: []char :: (n * i).toStr()
+			if(^s2 <> ^s)
+				skip loop
+			end if
+			do s2.sort()
+			if(s <> s2)
+				skip loop
+			end if
+		end for
+		do cui@print("\{n}\n")
+		ret
+	end while
+end func
