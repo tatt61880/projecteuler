@@ -1,0 +1,24 @@
+func main()
+	const nMax: int :: 100
+	var comb: [][]int :: #[nMax + 1, nMax + 1]int
+	for n(0, nMax)
+		do comb[n][0] :: 1
+		do comb[n][n] :: 1
+		for r(1, n - 1)
+			do comb[n][r] :: comb[n - 1][r - 1] + comb[n - 1][r]
+			if(comb[n][r] > 1000000)
+				do comb[n][r] :: 1000001
+			end if
+		end for
+	end for
+	
+	var ans: int :: 0
+	for n(1, 100)
+		for r(1, 100)
+			if(comb[n][r] > 1000000)
+				do ans :+ 1
+			end if
+		end for
+	end for
+	do cui@print("\{ans}\n")
+end func
