@@ -1,0 +1,135 @@
+func main()
+	const n: int :: 1000
+	var file: file@Reader :: file@makeReader("poker.txt")
+	assert(file <>& null)
+	
+	var ans: int :: 0
+	for i(1, n)
+		var s: []char :: file.readLine()
+		var s1: []char :: s.sub(0, 14)
+		var s2: []char :: s.sub(15, 14)
+		if(rank(s1) > rank(s2))
+			do ans :+ 1
+		end if
+	end for
+	do cui@print("\{ans}\n")
+	
+	func rank(s: []char): int
+		var isSameSuit: bool :: true
+		for i(1, 10, 3)
+			if(s[i] <> s[i + 3])
+				do isSameSuit :: false
+				break i
+			end if
+		end for
+		var nums: []int :: #[5]int
+		for i(0, 4)
+			do nums[i] :: c2i(s[3 * i])
+		end for
+		do nums.sort()
+		var isConsecutive: bool :: true
+		for i(0, 3)
+			if(nums[i] <> nums[i + 1] - 1)
+				do isConsecutive :: false
+				break i
+			end if
+		end for
+		if(isConsecutive)
+			if(isSameSuit)
+				ret nums[0] + 10 ^ 18
+			else
+				ret nums[0] + 10 ^ 14
+			end if
+		end if
+		if(isSameSuit)
+			var val: int :: 0
+			for i(4, 0, -1)
+				do val :* 14
+				do val :+ nums[i]
+			end for
+			ret val + 10 ^ 15
+		end if
+		if(nums[0] = nums[3] | nums[1] = nums[4])
+			ret nums[2] + 10 ^ 17
+		end if
+		if(nums[0] = nums[2] & nums[3] = nums[4])
+			ret nums[1] + 10 ^ 16
+		end if
+		if(nums[0] = nums[1] & nums[2] = nums[4])
+			ret nums[3] + 10 ^ 16
+		end if
+		
+		if(nums[0] = nums[2])
+			var val: int :: nums[1] * 14 ^ 2 + nums[4] * 14 + nums[3]
+			ret val + 10 ^ 13
+		end if
+		if(nums[1] = nums[3])
+			var val: int :: nums[2] * 14 ^ 2 + nums[4] * 14 + nums[0]
+			ret val + 10 ^ 13
+		end if
+		if(nums[2] = nums[4])
+			var val: int :: nums[3] * 14 ^ 2 + nums[1] * 14 + nums[0]
+			ret val + 10 ^ 13
+		end if
+		
+		if(nums[0] = nums[1] & nums[2] = nums[3])
+			var val: int :: nums[3] * 14 ^ 2 + nums[1] * 14 + nums[4]
+			ret val + 10 ^ 12
+		end if
+		if(nums[0] = nums[1] & nums[3] = nums[4])
+			var val: int :: nums[4] * 14 ^ 2 + nums[1] * 14 + nums[2]
+			ret val + 10 ^ 12
+		end if
+		if(nums[1] = nums[2] & nums[3] = nums[4])
+			var val: int :: nums[4] * 14 ^ 2 + nums[2] * 14 + nums[0]
+			ret val + 10 ^ 12
+		end if
+		
+		if(nums[0] = nums[1])
+			var val: int :: nums[0] * 14 ^ 3 + nums[4] * 14 ^ 2 + nums[3] * 14 + nums[2]
+			ret val + 10 ^ 11
+		end if
+		if(nums[1] = nums[2])
+			var val: int :: nums[1] * 14 ^ 3 + nums[4] * 14 ^ 2 + nums[3] * 14 + nums[0]
+			ret val + 10 ^ 11
+		end if
+		if(nums[2] = nums[3])
+			var val: int :: nums[2] * 14 ^ 3 + nums[4] * 14 ^ 2 + nums[1] * 14 + nums[0]
+			ret val + 10 ^ 11
+		end if
+		if(nums[3] = nums[4])
+			var val: int :: nums[3] * 14 ^ 3 + nums[2] * 14 ^ 2 + nums[1] * 14 + nums[0]
+			ret val + 10 ^ 11
+		end if
+		
+		var val: int :: 0
+		for i(4, 0, -1)
+			do val :* 14
+			do val :+ nums[i]
+		end for
+		ret val
+		
+		func c2i(c: char): int
+			var res: int :: 0
+			switch(c)
+			case '2' to '9'
+				do res :: c $ int - '0' $ int
+			case 'A'
+				do res :: 14
+			case 'T'
+				do res :: 10
+			case 'J'
+				do res :: 11
+			case 'Q'
+				do res :: 12
+			case 'K'
+				do res :: 13
+			default
+				do cui@print("Error!\n")
+			end switch
+			do res :- 1
+			ret res
+		end func
+		ret 0
+	end func
+end func
