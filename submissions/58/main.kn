@@ -1,0 +1,20 @@
+func main()
+	var totalNum: int :: 1
+	var primeNum: int :: 0
+	var i: int :: 1
+	while(true)
+		do i :+ 2
+		var x: int :: i ^ 2
+		for j(1, 3)
+			do x :- i - 1
+			if(math@prime(x))
+				do primeNum :+ 1
+			end if
+		end for
+		do totalNum :+ 4
+		if(totalNum > primeNum * 10)
+			do cui@print("\{i}\n")
+			ret
+		end if
+	end while
+end func
