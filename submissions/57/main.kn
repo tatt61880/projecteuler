@@ -1,0 +1,18 @@
+func main()
+	var ans: int :: 0
+	var nu: num@BigInt :: num@makeBigInt()
+	var de: num@BigInt :: num@makeBigInt()
+	var oldDe: num@BigInt :: num@makeBigInt()
+	do nu.fromInt(1)
+	do de.fromInt(1)
+	for(1, 1000)
+		do oldDe.fromStr(de.toStr())
+		do de.add(nu)
+		do nu.fromStr(oldDe.toStr())
+		do nu.add(de)
+		if(^(nu.toStr()) > ^(de.toStr()))
+			do ans :+ 1
+		end if
+	end for
+	do cui@print("\{ans}\n")
+end func
