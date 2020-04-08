@@ -1,0 +1,31 @@
+func main()
+	var num: num@BigInt :: num@makeBigInt()
+	var add: num@BigInt :: num@makeBigInt()
+	var ans: int :: 0
+	for n(1, 10000)
+		do num.fromInt(n)
+		for i(1, 50)
+			var s: []char :: num.toStr()
+			if b(i <> 1)
+				for j(0, ^s / 2)
+					if(s[j] <> s[^s - 1 - j])
+						break b
+					end if
+				end for
+				skip n
+			end if
+			do s.reverse()
+			var x: int :: 0
+			while(s[x] = '0')
+				do x :+ 1
+			end while
+			if(x <> 0)
+				do s :: s.sub(x, ^s - x)
+			end if
+			do add.fromStr(s)
+			do num.add(add)
+		end for
+		do ans :+ 1
+	end for
+	do cui@print("\{ans}\n")
+end func
