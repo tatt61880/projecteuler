@@ -1,0 +1,37 @@
+func main()
+	var mp: dict<int, int> :: #dict<int, int>
+	var n: int :: 0
+	var target: int
+	while loop(true)
+		do n :+ 1
+		var s: []char :: (n ^ 3).toStr()
+		do s.sort()
+		; 0の存在を考慮。
+		do s.reverse()
+		var key: int :: s.toInt(&)
+		var val: int :: mp.get(key, &) + 1
+		if(val = 5)
+			do target :: key
+			break loop
+		end if
+		do mp.add(key, val)
+		if(n > 10 ^ 6)
+			do cui@print("Too large.\n")
+			ret
+		end if
+	end while
+	
+	do n :: 0
+	while loop(true)
+		do n :+ 1
+		var s: []char :: (n ^ 3).toStr()
+		do s.sort()
+		; 0の存在を考慮。
+		do s.reverse()
+		var key: int :: s.toInt(&)
+		if(key = target)
+			do cui@print("\{n ^ 3}\n")
+			ret
+		end if
+	end while
+end func
