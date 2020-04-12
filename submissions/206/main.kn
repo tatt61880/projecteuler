@@ -1,0 +1,21 @@
+func main()
+	for i(10 ^ 8, 2 * 10 ^ 8)
+		if(i % 10 <> 3 & i % 10 <> 7)
+			skip i
+		end if
+		var s: []char :: (i ^ 2).toStr()
+		if(s[0] = '1'
+			|&s[2] = '2'
+			|&s[4] = '3'
+			|&s[6] = '4'
+			|&s[8] = '5'
+			|&s[10] = '6'
+			|&s[12] = '7'
+			|&s[14] = '8'
+			|)
+			var ans: int :: i
+			do cui@print("\{ans}0\n")
+			ret
+		end if
+	end for
+end func
