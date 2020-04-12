@@ -1,5 +1,5 @@
 func main()
-	for i(10 ^ 8, 2 * 10 ^ 8)
+	for i(10 ^ 8 + 1, 2 * 10 ^ 8, 2)
 		if(i % 10 <> 3 & i % 10 <> 7)
 			skip i
 		end if
